@@ -1,0 +1,10 @@
+<!-- chat-app.component.html -->
+
+<input type="text" [(ngModel)]="message" placeholder="Type your message">
+<button (click)="sendMessage()">Send</button>
+
+<section>
+  <div *ngFor="let msg of messages">{{
+    msg.userName + ': ' + msg.message
+    }}</div>
+</section>
