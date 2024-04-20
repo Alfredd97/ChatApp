@@ -24,7 +24,7 @@ export class ChatService {
         this.messages$.next(this.messages);
     });
 
-    this.connection.on('ConnectedUser', (users: any) => {
+    this.connection.on('ReceiveConnectedUser', (users: string[]) => {
       this.users$.next(users);
     });
   }
