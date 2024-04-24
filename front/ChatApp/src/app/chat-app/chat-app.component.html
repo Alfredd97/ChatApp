@@ -1,19 +1,26 @@
 <!-- chat-app.component.html -->
+<div class="flex h-10 items-center justify-center font-bold text-white bg-blue-500">
+  WELCOME TO {{roomName.toUpperCase()}} CHAT ROOM
+</div>
 <div class="flex">
-  <div class="flex h-5/6 w-1/4  ml-10 mt-5">
-    <h1>Users</h1>
-    <ul>
-    <li *ngFor="let user of users">{{ user }}</li>
-    </ul>
+  <div class="h-screen w-1/4 border border-blue-500">
+    <div class="font-bold px-3">Connected Users</div>
+    <div>
+      <ul>
+        <li *ngFor="let user of users">{{ user }}</li>
+      </ul>
+    </div>
   </div>
-  <div class="w-3/4 items-center mt-5">
+  <div class="w-3/4 items-center mx-5 mt-5 ">
       <div *ngFor="let msg of messages" class="message">
         <app-message-shape [message]="msg.message" [user]="msg.userName"></app-message-shape>
       </div>
 
-      <div class="flex fixed bottom-2 end-5 w-3/4 items-end justify-end">
-      <input class="w-full" type="text" [(ngModel)]="message" placeholder="Type your message">
-      <button (click)="sendMessage()">Send</button>
+      <div class="flex fixed bottom-2 end-5 w-3/4 h-12 items-end justify-end">
+      <input class="w-full h-full rounded-3xl border border-gray-600 mx-5" type="text" [(ngModel)]="message" placeholder="Type your message...">
+      <button class="h-full w-24 rounded-3xl bg-blue-500 hover:bg-blue-700" (click)="sendMessage()">
+        <span class="icon-[fa--paper-plane-o] hover:font-bold" style="width: 30px; height: 30px; color: white;"></span>
+      </button>
     </div>
   </div>
 </div>

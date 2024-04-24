@@ -16,8 +16,9 @@ export class ChatAppComponent implements OnInit{
 
   @Input() message: string = '';
   users: string[] = [];
-
   messages: any[] = [];
+
+  roomName: string = '';
 
   @HostListener('scroll', ['$event'])
   onScroll(event: any){
@@ -25,6 +26,7 @@ export class ChatAppComponent implements OnInit{
   }
 
   ngOnInit() : void{
+    this.roomName = sessionStorage.getItem('currentRoom') || '';
     this.chatService.messages$.subscribe(msg => {
       this.messages = msg;
       console.log(this.messages);
